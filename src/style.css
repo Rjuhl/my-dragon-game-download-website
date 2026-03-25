@@ -295,87 +295,110 @@ footer a { color: var(--accent); }
 footer a:hover { text-decoration: underline; }
 
 /* ── Feedback page ────────────────────────────────────────── */
-.feedback-wrap {
-  max-width: 640px;
-  margin: 4rem auto;
-  padding: 0 1.5rem 5rem;
+body.feedback-page {
+  overflow: hidden;
+  position: relative;
 }
 
-.feedback-wrap h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: .5rem;
+.feedback-bg {
+  position: fixed;
+  inset: 0;
+  background: url('../assets/imgs/1_my_dragon_game_ss.png') center / cover no-repeat;
+  filter: blur(6px) brightness(.45);
+  transform: scale(1.05); /* hide blur edges */
+  z-index: 0;
 }
 
-.feedback-wrap .sub {
-  color: var(--muted);
-  margin-bottom: 2.5rem;
-  font-size: .95rem;
+.feedback-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+  min-height: 0;
 }
 
-.form-group {
-  margin-bottom: 1.25rem;
-}
-
-label {
-  display: block;
-  font-size: .85rem;
-  color: var(--muted);
-  margin-bottom: .4rem;
-}
-
-input, select, textarea {
-  width: 100%;
-  background: var(--surface);
+.feedback-card {
+  background: rgba(49, 57, 73, .85);  /* --surface with alpha */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  color: var(--text);
-  padding: .65rem .85rem;
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  max-width: 720px;
+  width: 100%;
+  text-align: center;
+}
+
+.feedback-icon {
+  margin-bottom: 1rem;
+}
+
+.feedback-icon img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.feedback-card h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: .6rem;
+}
+
+.feedback-card .sub {
+  color: var(--muted);
   font-size: .95rem;
-  font-family: inherit;
-  outline: none;
-  transition: border-color .15s;
+  margin-bottom: 2rem;
+  line-height: 1.6;
 }
 
-input:focus, select:focus, textarea:focus {
-  border-color: var(--accent);
+.feedback-btn {
+  font-size: 1rem;
+  padding: .85rem 2rem;
+  width: 100%;
+  justify-content: center;
 }
 
-select option { background: var(--surface); }
-
-textarea { resize: vertical; min-height: 120px; }
-
-.form-row {
+.feedback-forms {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
+  margin-bottom: 1rem;
 }
 
-@media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+@media (max-width: 520px) {
+  .feedback-forms { grid-template-columns: 1fr; }
+}
 
-.btn-submit {
-  background: var(--accent);
-  color: #fff;
-  width: 100%;
-  padding: .8rem;
+.feedback-form-card {
+  background: rgba(0,0,0,.25);
+  border: 1px solid var(--border);
   border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  text-align: left;
+}
+
+.feedback-form-title {
+  font-weight: 700;
   font-size: 1rem;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  margin-top: .5rem;
-  transition: filter .15s;
+  color: var(--text);
 }
 
-.btn-submit:hover { filter: brightness(1.12); }
+.feedback-form-desc {
+  font-size: .82rem;
+  color: var(--muted);
+  line-height: 1.5;
+  flex: 1;
+}
 
-.success-msg {
-  display: none;
-  background: #43806d;       /* #22 dark green from palette */
-  border: 1px solid #55c57b; /* #24 game grass green */
-  color: #ffffff;
-  border-radius: var(--radius);
-  padding: 1rem;
-  margin-top: 1.5rem;
-  font-size: .95rem;
+.feedback-note {
+  color: var(--muted);
+  font-size: .75rem;
+  margin-top: .5rem;
 }
